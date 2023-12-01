@@ -1,26 +1,27 @@
-import architecture.Bus;
 import architecture.Car;
-import architecture.Motor;
+import architecture.Feature;
+import architecture.Performance;
+
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
 
-        Car car = new Car("Audi", "A4", "Gasoline",
-                "Manual", "Grey", 1999, 1800,
-                234560, 4200, 5, "Sedan");
-
-        Bus bus = new Bus("Citroen", "Jumper", "Diesel",
-                "Automation", "Blue", 2006, 2500,
-                340200, 16000, 2, 8, 3000);
-
-        Motor motor = new Motor("Citroen", "Jumper", "Diesel",
-                "Automation", "Blue", 2006, 2500,
-                340200, 16000, "Aerial", 4, "Cross");
+        LocalDate carData = LocalDate.parse("1999-06-26");
+        Car car = new Car(carData, 1789, 235.324, 4.650, 5, "Avant");
+        car.addPerformanceCategories();
+        car.setPerformanceValues(Performance.BRAND, "Audi");
+        car.setPerformanceValues(Performance.MODEL, "A4");
+        car.setPerformanceValues(Performance.FUEL, "Petrol");
+        car.setPerformanceValues(Performance.TRANSMISSION, "Manual");
+        car.setPerformanceValues(Performance.COLOR, "Grey");
+        Feature abs = new Feature("abs");
+        Feature trc = new Feature("traction control");
+        Feature esp = new Feature("esp");
+        car.setFeatures(abs);
+        car.setFeatures(trc);
+        car.setFeatures(esp);
 
         System.out.println(car);
-
-        System.out.println(bus);
-
-        System.out.println(motor);
     }
 }

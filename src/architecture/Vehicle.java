@@ -1,99 +1,73 @@
 package architecture;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
-public abstract class Vehicle extends Safety{
-    private String brand;
-    private String model;
-    private String engineFuel;
-    private String transmission;
-    private String color;
-    private int dataOfManufacture;
-    private int cubeCapacity;
-    private long milleAge;
-    private int price;
+public abstract class Vehicle {
+    private final Map<Performance, String> performances;
+    private final Set<Feature> features;
+    private double cubeCapacity;
+    private double milleAge;
+    private double price;
+    private LocalDate dataOfManufacture;
 
-    protected Vehicle(String brand, String model,
-                   String engineFuel, String transmission, String color,
-                   int dataOfManufacture, int cubeCapacity, long milleAge, int price) {
-        this.brand = brand;
-        this.model = model;
-        this.engineFuel = engineFuel;
-        this.transmission = transmission;
-        this.color = color;
+    protected Vehicle(LocalDate dataOfManufacture, double cubeCapacity, double milleAge, double price) {
         this.dataOfManufacture = dataOfManufacture;
         this.cubeCapacity = cubeCapacity;
         this.milleAge = milleAge;
         this.price = price;
+        this.features = new HashSet<>();
+        this.performances = new HashMap<>();
     }
 
-    protected String getBrand() {
-        return brand;
+
+    public void addPerformanceCategories() {
+        for (Performance performance : Performance.values()) {
+            this.performances.putIfAbsent(performance, null);
+        }
     }
 
-    protected String getModel() {
-        return model;
+    public void setPerformanceValues(Performance key, String value) {
+        this.performances.put(key, value);
     }
 
-    protected int getDataOfManufacture() {
+    public void setFeatures(Feature features) {
+        this.features.add(features);
+    }
+
+    protected Set<Feature> getFeatures() {
+        return features;
+    }
+    protected Map<Performance, String> getPerformances() {
+        return performances;
+    }
+    public LocalDate getDataOfManufacture() {
         return dataOfManufacture;
     }
 
-    protected String getEngineFuel() {
-        return engineFuel;
-    }
-
-    protected int getCubeCapacity() {
+    protected double getCubeCapacity() {
         return cubeCapacity;
-    }
-
-    protected String getTransmission() {
-        return transmission;
     }
 
     protected double getMilleAge() {
         return milleAge;
     }
 
-    protected String getColor() {
-        return color;
-    }
-
-    protected int getPrice() {
+    protected double getPrice() {
         return price;
     }
-
-    protected void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    protected void setModel(String model) {
-        this.model = model;
-    }
-
-    protected void setDataOfManufacture(int dataOfManufacture) {
-        this.dataOfManufacture = dataOfManufacture;
-    }
-
-    protected void setMotorType(String engineFuel) {
-        this.engineFuel = engineFuel;
-    }
-
-    protected void setCubeCapacity(int cubeCapacity) {
+    public void setDataOfManufacture(LocalDate dataOfManufacture) { this.dataOfManufacture = dataOfManufacture; }
+    protected void setCubeCapacity(double cubeCapacity) {
         this.cubeCapacity = cubeCapacity;
     }
 
-    protected void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
-
-    protected void setMilleAge(long milleAge) {
+    protected void setMilleAge(double milleAge) {
         this.milleAge = milleAge;
     }
 
-    protected void setColor(String color) {
-        this.color = color;
-    }
-
-    protected void setPrice(int price) {
+    protected void setPrice(double price) {
         this.price = price;
     }
 }

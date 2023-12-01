@@ -1,24 +1,21 @@
 package architecture;
+import java.time.LocalDate;
 
 public class Motor extends Vehicle {
-    private int engineType;
+    private String engineType;
     private String typeOfCooling;
     private String category;
 
-    public Motor(String brand, String model,
-          String engineFuel, String transmission, String color,
-          int dataOfManufacture, int cubeCapacity, long milleAge,
-          int price, String typeOfCooling, int engineType, String category) {
+    public Motor(LocalDate dataOfManufacture, double cubeCapacity, long milleAge,
+                 int price, String typeOfCooling, String engineType, String category) {
 
-        super(brand, model,
-                engineFuel, transmission, color,
-                dataOfManufacture, cubeCapacity, milleAge, price);
+        super(dataOfManufacture, cubeCapacity, milleAge, price);
         this.engineType = engineType;
         this.typeOfCooling = typeOfCooling;
         this.category = category;
     }
 
-    public int getEngineType() {
+    public String getEngineType() {
         return engineType;
     }
 
@@ -30,7 +27,7 @@ public class Motor extends Vehicle {
         return category;
     }
 
-    public void setEngineType(int engineType) {
+    public void setEngineType(String engineType) {
         this.engineType = engineType;
     }
 
@@ -44,19 +41,21 @@ public class Motor extends Vehicle {
 
     @Override
     public String toString() {
-        return "\nHere is information about the architecture.Motor: " +
-                "\nBrand: " + getBrand() +
-                "\nModel: " + getModel() +
-                "\narchitecture.Motor type: " + getEngineFuel() +
-                "\nTransmission: " + getTransmission() +
-                "\nColor: " + getColor() +
-                "\nData of manufacture: " + getDataOfManufacture() +
-                "\nCube capacity: " + getCubeCapacity() +
-                "\nMille age: " + getMilleAge() +
-                "\nType of cooling: " + getTypeOfCooling() +
-                "\nCategory: " + getCategory() +
-                "\nEngine type: " + getEngineType() +
-                "\nPrice: " + getPrice();
+        return "Motor{" +
+                "brand='" + getPerformances().get(Performance.BRAND) +
+                ", model='" + getPerformances().get(Performance.MODEL) + '\'' +
+                ", fuel='" + getPerformances().get(Performance.FUEL) + '\'' +
+                ", transmission='" + getPerformances().get(Performance.TRANSMISSION) + '\'' +
+                ", color='" + getPerformances().get(Performance.COLOR) + '\'' +
+                ", production='" + getDataOfManufacture() + '\'' +
+                ", category='" + getCategory() + '\'' +
+                ", cubicCapacity='" + getCubeCapacity() + '\'' +
+                ", milleage='" + getMilleAge() + '\'' +
+                ", enginType='" + getEngineType() + '\'' +
+                ", coolingType='" + getTypeOfCooling() + '\'' +
+                ", price='" + String.format("%.3f", getPrice()) + '\'' +
+                ", features='" + getFeatures().toString() + '\'' +
+                '}';
     }
 }
 

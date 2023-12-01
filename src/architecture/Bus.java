@@ -1,24 +1,21 @@
 package architecture;
+import java.time.LocalDate;
 
 public class Bus extends Vehicle {
 
     private int numberOfPlaces;
-    private int loadCapacity;
+    private double loadCapacity;
     private int numberOfAxles;
 
-    public Bus(String brand, String model,
-        String engineFuel, String transmission, String color,
-        int dataOfManufacture, int cubeCapacity, long milleAge, int price,
-        int numberOfAxles, int numberOfPlaces, int loadCapacity) {
+    public Bus(LocalDate dataOfManufacture, int cubeCapacity, long milleAge, int price,
+               int numberOfAxles, int numberOfPlaces, double loadCapacity) {
 
-        super(brand, model,
-                engineFuel, transmission, color,
-                dataOfManufacture, cubeCapacity, milleAge, price);
+        super(dataOfManufacture, cubeCapacity, milleAge, price);
         this.loadCapacity = loadCapacity;
         this.numberOfAxles = numberOfAxles;
         this.numberOfPlaces = numberOfPlaces;
     }
-    public int getLoadCapacity() {
+    public double getLoadCapacity() {
         return loadCapacity;
     }
 
@@ -30,7 +27,7 @@ public class Bus extends Vehicle {
         return numberOfPlaces;
     }
 
-    public void setLoadCapacity(int loadCapacity) {
+    public void setLoadCapacity(double loadCapacity) {
         this.loadCapacity = loadCapacity;
     }
 
@@ -44,19 +41,20 @@ public class Bus extends Vehicle {
 
     @Override
     public String toString() {
-        return "\nHere is information about the architecture.Bus: " +
-                "\nBrand: " + getBrand() +
-                "\nModel: " + getModel() +
-                "\nEngine fuel: " + getEngineFuel() +
-                "\nTransmission: " + getTransmission() +
-                "\nColor: " + getColor() +
-                "\nData of manufacture: " + getDataOfManufacture() +
-                "\nCube capacity: " + getCubeCapacity() +
-                "\nMille age: " + getMilleAge() +
-                "\nNumber of axles: " + getNumberOfAxles() +
-                "\nNumber of places: " + getNumberOfPlaces() +
-                "\nLoad capacity: " + getLoadCapacity() +
-                "\nPrice: " + getPrice();
-
+        return "Bus{" +
+                "brand='" + getPerformances().get(Performance.BRAND) +
+                ", model='" + getPerformances().get(Performance.MODEL) + '\'' +
+                ", fuel='" + getPerformances().get(Performance.FUEL) + '\'' +
+                ", transmission='" + getPerformances().get(Performance.TRANSMISSION) + '\'' +
+                ", color='" + getPerformances().get(Performance.COLOR) + '\'' +
+                ", production='" + getDataOfManufacture() + '\'' +
+                ", places='" + getNumberOfPlaces() + '\'' +
+                ", axles='" + getNumberOfAxles() + '\'' +
+                ", load='" + getLoadCapacity() + '\'' +
+                ", cubicCapacity='" + getCubeCapacity() + '\'' +
+                ", milleage='" + getMilleAge() + '\'' +
+                ", price='" + String.format("%.3f", getPrice()) + '\'' +
+                ", features='" + getFeatures().toString() + '\'' +
+                '}';
     }
 }

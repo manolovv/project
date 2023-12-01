@@ -1,20 +1,19 @@
 package architecture;
+import java.time.LocalDate;
 
 public class Car extends Vehicle {
     private int numberOfDoors;
     private String category;
 
-    public Car(String brand, String model,
-        String motorType, String transmission, String color,
-        int dataOfManufacture, int cubeCapacity, long milleAge,
-        int price, int numberOfDoors, String category) {
 
-        super(brand, model,
-                motorType, transmission, color,
-                dataOfManufacture, cubeCapacity, milleAge, price);
+    public Car(LocalDate dataOfManufacture, int cubeCapacity, double milleAge,
+               double price, int numberOfDoors, String category) {
+
+        super(dataOfManufacture, cubeCapacity, milleAge, price);
         this.numberOfDoors = numberOfDoors;
         this.category = category;
     }
+
 
     public int getNumberOfDoors() {
         return numberOfDoors;
@@ -34,17 +33,18 @@ public class Car extends Vehicle {
 
     @Override
     public String toString() {
-        return "\nHere is information about the architecture.Car: " +
-                "\nBrand: " + getBrand() +
-                "\nModel: " + getModel() +
-                "\narchitecture.Motor type: " + getEngineFuel() +
-                "\nTransmission: " + getTransmission() +
-                "\nColor: " + getColor() +
-                "\nData of manufacture: " + getDataOfManufacture() +
-                "\nCube capacity: " + getCubeCapacity() +
-                "\nMille age: " + getMilleAge() +
-                "\nNumber of doors: " + getNumberOfDoors() +
-                "\nCategory: " + getCategory() +
-                "\nPrice: " + getPrice();
+        return "Car{" +
+                "brand='" + getPerformances().get(Performance.BRAND) +
+                ", model='" + getPerformances().get(Performance.MODEL) + '\'' +
+                ", fuel='" + getPerformances().get(Performance.FUEL) + '\'' +
+                ", transmission='" + getPerformances().get(Performance.TRANSMISSION) + '\'' +
+                ", color='" + getPerformances().get(Performance.COLOR) + '\'' +
+                ", production='" + getDataOfManufacture() + '\'' +
+                ", category='" + getCategory() + '\'' +
+                ", cubicCapacity='" + getCubeCapacity() + '\'' +
+                ", milleage='" + getMilleAge() + '\'' +
+                ", price='" + String.format("%.3f", getPrice()) + '\'' +
+                ", features='" + getFeatures().toString() + '\'' +
+                '}';
     }
 }
