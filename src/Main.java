@@ -1,27 +1,24 @@
-import architecture.Car;
-import architecture.Feature;
-import architecture.Performance;
-
-import java.time.LocalDate;
+import architecture.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        LocalDate carData = LocalDate.parse("1999-06-26");
-        Car car = new Car(carData, 1789, 235.324, 4.650, 5, "Avant");
-        car.addPerformanceCategories();
-        car.setPerformanceValues(Performance.BRAND, "Audi");
-        car.setPerformanceValues(Performance.MODEL, "A4");
-        car.setPerformanceValues(Performance.FUEL, "Petrol");
-        car.setPerformanceValues(Performance.TRANSMISSION, "Manual");
-        car.setPerformanceValues(Performance.COLOR, "Grey");
-        Feature abs = new Feature("abs");
-        Feature trc = new Feature("traction control");
-        Feature esp = new Feature("esp");
-        car.setFeatures(abs);
-        car.setFeatures(trc);
-        car.setFeatures(esp);
+        final Car audiA4 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_A4));
+        final Car audiA6 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_A6));
+        final Car audiA7 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_A7));
+        final Car audiA8 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_A8));
+        final Car audiS4 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_S4));
+        final Car audiS5 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_S5));
+        final Car audiS6 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_S6));
+        final Car audiRS3 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_RS3));
+        final Car audiRS4 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_RS4));
+        final Car audiRS5 = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_RS5));
+        final Car audiQuattro = new Car(DataHolder.getBrandByName(BrandName.AUDI), DataHolder.getModelByName(BrandName.AUDI, ModelName.AUDI_QUATTRO));
 
-        System.out.println(car);
+        audiA4.addFeatures(DataHolder.getFeatureByName(FeatureName.ABS));
+        audiA4.addFeatures(DataHolder.getFeatureByName(FeatureName.AIRBAGS));
+        audiA4.addFeatures(DataHolder.getFeatureByName(FeatureName.DOORS_5));
+        System.out.println(audiA4);
+
     }
 }

@@ -1,50 +1,40 @@
 package architecture;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Car extends Vehicle {
-    private int numberOfDoors;
-    private String category;
+public class Car {
+    private final Brand brand;
+    private final Model model;
+    private final List<Feature> features;
 
-
-    public Car(LocalDate dataOfManufacture, int cubeCapacity, double milleAge,
-               double price, int numberOfDoors, String category) {
-
-        super(dataOfManufacture, cubeCapacity, milleAge, price);
-        this.numberOfDoors = numberOfDoors;
-        this.category = category;
+    public Car(Brand brand, Model model) {
+        this.brand = brand;
+        this.model = model;
+        this.features = new ArrayList<>();
     }
 
-
-    public int getNumberOfDoors() {
-        return numberOfDoors;
+    public void addFeatures(Feature feature) {
+        features.add(feature);
     }
 
-    public String getCategory() {
-        return category;
+    public Brand getBrand() {
+        return brand;
     }
 
-    public void setNumberOfDoors(int numberOfDoors) {
-        this.numberOfDoors = numberOfDoors;
+    public Model getModel() {
+        return model;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public List<Feature> getFeatures() {
+        return features;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "brand='" + getPerformances().get(Performance.BRAND) +
-                ", model='" + getPerformances().get(Performance.MODEL) + '\'' +
-                ", fuel='" + getPerformances().get(Performance.FUEL) + '\'' +
-                ", transmission='" + getPerformances().get(Performance.TRANSMISSION) + '\'' +
-                ", color='" + getPerformances().get(Performance.COLOR) + '\'' +
-                ", production='" + getDataOfManufacture() + '\'' +
-                ", category='" + getCategory() + '\'' +
-                ", cubicCapacity='" + getCubeCapacity() + '\'' +
-                ", milleage='" + getMilleAge() + '\'' +
-                ", price='" + String.format("%.3f", getPrice()) + '\'' +
-                ", features='" + getFeatures().toString() + '\'' +
+                "brand=" + brand +
+                ", model=" + model +
+                ", features=" + features +
                 '}';
     }
 }
