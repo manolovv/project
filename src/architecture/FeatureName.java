@@ -35,4 +35,5 @@ public enum FeatureName {
     FRONT_DRIVE,
     DOORS_3,
     DOORS_5,
+
 }
