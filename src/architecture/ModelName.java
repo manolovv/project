@@ -223,6 +223,4 @@ public enum ModelName {
     BMW_I8,
     BMW_IX,
     BMW_IX3,
-
-
 }

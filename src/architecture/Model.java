@@ -23,4 +23,5 @@ public class Model {
                 "name=" + name +
                 '}';
     }
+
 }

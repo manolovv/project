@@ -150,7 +150,6 @@ public final class DataHolder {
         features.put(FeatureName.DOORS_5, new Feature(FeatureName.DOORS_5));
 
     }
-
     public static Model getModelByName(BrandName brandName, ModelName modelName) {
         return models.values()
                 .stream()
