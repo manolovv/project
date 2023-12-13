@@ -2,11 +2,11 @@ package architecture;
 
 public class Model {
     private final ModelName name;
-    private final Brand brandName;
+    private final Brand brand;
 
     public Model(ModelName name, Brand brandName) {
         this.name = name;
-        this.brandName = brandName;
+        this.brand = brandName;
     }
 
     public ModelName getName() {
@@ -14,7 +14,7 @@ public class Model {
     }
 
     public Brand getBrand() {
-        return brandName;
+        return brand;
     }
 
     @Override

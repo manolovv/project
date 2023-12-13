@@ -10,7 +10,7 @@ public class Car extends Vehicle {
     public Car(LocalDate dataOfManufacture, LocalDate firstRegister,
                Brand brand, Model model, List<FeatureName> features,
                Engine engine, TransmissionChoice transmission,
-               EuroStandard euroStandard, long milleAge, String color,
+               EuroStandard euroStandard, long milleAge, Color color,
                int numberOfDoors, CarCategory carCategory) {
         super(dataOfManufacture, firstRegister, brand, model, features, engine,
                 transmission, euroStandard, milleAge, color);
@@ -24,5 +24,13 @@ public class Car extends Vehicle {
 
     public CarCategory getCarCategory() {
         return carCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "numberOfDoors=" + getNumberOfDoors() +
+                ", carCategory=" + getCarCategory() +
+                "} " + super.toString();
     }
 }

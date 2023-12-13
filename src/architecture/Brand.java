@@ -1,6 +1,5 @@
 package architecture;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Brand {
     private final BrandName name;
@@ -20,7 +19,7 @@ public class Brand {
     }
 
     public Set<Model> getModels() {
-        return models;
+        return new HashSet<>(models);
     }
 
     @Override

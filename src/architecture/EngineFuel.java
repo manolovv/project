@@ -4,5 +4,6 @@ public enum EngineFuel {
     GASOLINE,
     DIESEL,
     ELECTRIC,
-    HYBRID;
+    HYBRID_GASOLINE,
+    HYBRID_DIESEL,
 }

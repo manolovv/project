@@ -9,7 +9,7 @@ public class Motor extends Vehicle {
     public Motor(LocalDate dataOfManufacture, LocalDate firstRegister,
                  Brand brand, Model model, List<FeatureName> features,
                  Engine engine, TransmissionChoice transmission,
-                 EuroStandard euroStandard, long milleAge, String color,
+                 EuroStandard euroStandard, long milleAge, Color color,
                  MotorCategory motorCategory) {
         super(dataOfManufacture, firstRegister, brand, model, features,
                 engine, transmission, euroStandard, milleAge,
@@ -19,5 +19,12 @@ public class Motor extends Vehicle {
 
     public MotorCategory getMotorCategory() {
         return motorCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "Motor{" +
+                "motorCategory=" + getMotorCategory() +
+                "} " + super.toString();
     }
 }

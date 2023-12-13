@@ -3,15 +3,15 @@ package architecture;
 public class Engine {
     private final EngineFuel engineFuel;
     private final TypeOfCooling typeOfCooling;
-    private final int NumberOfCylinders;
-    private final long cubicCapacity;
+    private final int numberOfCylinders;
+    private final int cubicCapacity;
     private final int horsePower;
 
     public Engine(EngineFuel engineFuel, TypeOfCooling typeOfCooling,
-                  int numberOfCylinders, long cubicCapacity, int horsePower) {
+                  int numberOfCylinders, int cubicCapacity, int horsePower) {
         this.engineFuel = engineFuel;
         this.typeOfCooling = typeOfCooling;
-        NumberOfCylinders = numberOfCylinders;
+        this.numberOfCylinders = numberOfCylinders;
         this.cubicCapacity = cubicCapacity;
         this.horsePower = horsePower;
     }
@@ -29,7 +29,7 @@ public class Engine {
     }
 
     public int getNumberOfCylinders() {
-        return NumberOfCylinders;
+        return numberOfCylinders;
     }
 
     public long getCubicCapacity() {

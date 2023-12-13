@@ -2,7 +2,7 @@ package architecture;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Vehicle {
+public abstract class Vehicle {
     private final LocalDate dataOfManufacture;
     private final LocalDate firstRegister;
     private final Brand brand;
@@ -12,12 +12,12 @@ public class Vehicle {
     private final TransmissionChoice transmission;
     private final EuroStandard euroStandard;
     private final long milleAge;
-    private final String color;
+    private final Color color;
 
     protected Vehicle(LocalDate dataOfManufacture, LocalDate firstRegister,
                    Brand brand, Model model, List<FeatureName> features,
                    Engine engine, TransmissionChoice transmission,
-                   EuroStandard euroStandard, long milleAge, String color) {
+                   EuroStandard euroStandard, long milleAge, Color color) {
         this.dataOfManufacture = dataOfManufacture;
         this.firstRegister = firstRegister;
         this.brand = brand;
@@ -66,7 +66,23 @@ public class Vehicle {
         return milleAge;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "dataOfManufacture=" + getDataOfManufacture() +
+                ", firstRegister=" + getFirstRegister() +
+                ", brand=" + getBrand() +
+                ", model=" + getModel() +
+                ", engine=" + getEngine() +
+                ", features=" + getFeatures() +
+                ", transmission=" + getTransmission() +
+                ", euroStandard=" + getEuroStandard() +
+                ", milleAge=" + getMilleAge() +
+                ", color='" + getColor() + '\'' +
+                '}';
     }
 }
