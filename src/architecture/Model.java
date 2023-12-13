@@ -2,9 +2,9 @@ package architecture;
 
 public class Model {
     private final ModelName name;
-    private final BrandName brandName;
+    private final Brand brandName;
 
-    public Model(ModelName name, BrandName brandName) {
+    public Model(ModelName name, Brand brandName) {
         this.name = name;
         this.brandName = brandName;
     }
@@ -13,7 +13,7 @@ public class Model {
         return name;
     }
 
-    public BrandName getBrand() {
+    public Brand getBrand() {
         return brandName;
     }
 

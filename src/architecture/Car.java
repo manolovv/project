@@ -1,40 +1,28 @@
 package architecture;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
-public class Car {
-    private final Brand brand;
-    private final Model model;
-    private final List<Feature> features;
+public class Car extends Vehicle {
 
-    public Car(Brand brand, Model model) {
-        this.brand = brand;
-        this.model = model;
-        this.features = new ArrayList<>();
+    private final int numberOfDoors;
+    private final CarCategory carCategory;
+
+    public Car(LocalDate dataOfManufacture, LocalDate firstRegister,
+               Brand brand, Model model, List<FeatureName> features,
+               Engine engine, TransmissionChoice transmission,
+               EuroStandard euroStandard, long milleAge, String color,
+               int numberOfDoors, CarCategory carCategory) {
+        super(dataOfManufacture, firstRegister, brand, model, features, engine,
+                transmission, euroStandard, milleAge, color);
+        this.numberOfDoors = numberOfDoors;
+        this.carCategory = carCategory;
     }
 
-    public void addFeatures(Feature feature) {
-        features.add(feature);
+    public int getNumberOfDoors() {
+        return numberOfDoors;
     }
 
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public Model getModel() {
-        return model;
-    }
-
-    public List<Feature> getFeatures() {
-        return features;
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "brand=" + brand +
-                ", model=" + model +
-                ", features=" + features +
-                '}';
+    public CarCategory getCarCategory() {
+        return carCategory;
     }
 }

@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ab794a4-3bd4-46a2-83a7-9f092193cdfb" name="Changes" comment="Progress for the moment" />
+    <list default="true" id="1ab794a4-3bd4-46a2-83a7-9f092193cdfb" name="Changes" comment="Progress for the moment">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/CarCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/EngineFuel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/EuroStandard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/Motor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/MotorCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/TransmissionChoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/TypeOfCooling.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/architecture/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/architecture/BrandName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/architecture/BrandName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/architecture/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/architecture/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/architecture/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/architecture/DataHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/architecture/Feature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/architecture/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/architecture/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/architecture/ModelName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/architecture/ModelName.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -93,7 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702053983613</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Progress for the moment">
+      <created>1702058875653</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702058875653</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Progress for the moment">
+      <created>1702059141313</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702059141313</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
