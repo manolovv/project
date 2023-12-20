@@ -1,11 +1,18 @@
-import architecture.*;
+package com.manolov.project;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.manolov.project.architecture.*;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    private static final ObjectMapper OBJECT_MAPPER = JsonMapper.builder().findAndAddModules().build();
+
+    public static void main(String[] args) throws JsonProcessingException {
 
         LocalDate audiR8Manufacture = LocalDate.of(1999, Month.JANUARY, 6);
         LocalDate audiR8Register = LocalDate.of(2001, Month.FEBRUARY, 21);
@@ -19,7 +26,6 @@ public class Main {
                 36000, Color.RED, 3, CarCategory.COUPE);
 
         System.out.println(audiR8);
-
 
         LocalDate hondaCBRManufacture = LocalDate.of(1999, Month.JANUARY, 6);
         LocalDate hondaCBRRegister = LocalDate.of(2001, Month.FEBRUARY, 21);

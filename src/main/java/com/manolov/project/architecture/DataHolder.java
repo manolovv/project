@@ -1,4 +1,4 @@
-package architecture;
+package com.manolov.project.architecture;
 import java.util.*;
 
 public final class DataHolder {

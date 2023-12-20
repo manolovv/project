@@ -1,4 +1,4 @@
-package architecture;
+package com.manolov.project.architecture;
 
 public class Engine {
     private final EngineFuel engineFuel;

@@ -1,4 +1,4 @@
-package architecture;
+package com.manolov.project.architecture;
 import java.time.LocalDate;
 import java.util.List;
 

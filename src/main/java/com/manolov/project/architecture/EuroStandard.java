@@ -1,4 +1,4 @@
-package architecture;
+package com.manolov.project.architecture;
 
 public enum EuroStandard {
     EURO_1,
