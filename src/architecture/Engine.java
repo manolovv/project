@@ -35,4 +35,15 @@ public class Engine {
     public long getCubicCapacity() {
         return cubicCapacity;
     }
+
+    @Override
+    public String toString() {
+        return "Engine{" +
+                "engineFuel=" + engineFuel +
+                ", typeOfCooling=" + typeOfCooling +
+                ", numberOfCylinders=" + numberOfCylinders +
+                ", cubicCapacity=" + cubicCapacity +
+                ", horsePower=" + horsePower +
+                '}';
+    }
 }
