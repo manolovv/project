@@ -1,11 +1,29 @@
-import architecture.*;
-
+package com.manolov;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.manolov.architecture.*;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.findAndRegisterModules();
+
+        List<Vehicle> carList = mapper.readValue(new File("src\\main\\resources\\vehicles.json"),
+                new TypeReference<List<Vehicle>>() {
+        });
+
+        System.out.println(carList);
+
+
 
         LocalDate audiR8Manufacture = LocalDate.of(1999, Month.JANUARY, 6);
         LocalDate audiR8Register = LocalDate.of(2001, Month.FEBRUARY, 21);
@@ -18,8 +36,6 @@ public class Main {
                 audiR8Features, audiR8Engine, TransmissionChoice.SEMI_AUTOMATIC, EuroStandard.EURO_5,
                 36000, Color.RED, 3, CarCategory.COUPE);
 
-        System.out.println(audiR8);
-
 
         LocalDate hondaCBRManufacture = LocalDate.of(1999, Month.JANUARY, 6);
         LocalDate hondaCBRRegister = LocalDate.of(2001, Month.FEBRUARY, 21);
@@ -31,6 +47,18 @@ public class Main {
         Motor hondaCBR = new Motor(hondaCBRManufacture, hondaCBRRegister, hondaCBRBrand, hondaCBRModel, hondaCBRFeatures,
                 hondaCBREngine, TransmissionChoice.MANUAL, EuroStandard.EURO_4, 24000, Color.YELLOW, MotorCategory.ENDURO);
 
-        System.out.println(hondaCBR);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.findAndRegisterModules();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        objectMapper.setDateFormat(df);
+
+        List<Vehicle> vehicleList = new ArrayList<>();
+        vehicleList.add(audiR8);
+        vehicleList.add(hondaCBR);
+
+        objectMapper.writeValue(new File("src\\main\\resources\\writeObjects.json"), vehicleList);
+
+
     }
 }

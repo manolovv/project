@@ -1,4 +1,4 @@
-package architecture;
+package com.manolov.architecture;
 
 public enum BrandName {
     ACURA,
@@ -68,4 +68,8 @@ public enum BrandName {
     MOTOR_SUZUKI,
     MOTOR_YAMAHA,
     MOTOR_TRIUMPH,
+    ;
+
+    BrandName() {
+    }
 }

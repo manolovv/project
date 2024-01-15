@@ -1,11 +1,17 @@
-package architecture;
+package com.manolov.architecture;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.*;
+
 
 public class Brand {
     private final BrandName name;
+    @JsonBackReference
     private final Set<Model> models;
 
-    public Brand(BrandName name) {
+    @JsonCreator
+    public Brand(@JsonProperty("name") BrandName name) {
         this.name = name;
         this.models = new HashSet<>();
     }

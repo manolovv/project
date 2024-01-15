@@ -1,4 +1,4 @@
-package architecture;
+package com.manolov.architecture;
 
 public enum FeatureName {
     GPS,
