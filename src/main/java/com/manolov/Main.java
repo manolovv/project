@@ -14,14 +14,14 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.findAndRegisterModules();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.findAndRegisterModules();
 
-        List<Vehicle> carList = mapper.readValue(new File("src\\main\\resources\\vehicles.json"),
+        List<Vehicle> vehicleListReader = objectMapper.readValue(new File("src\\main\\resources\\vehicles.json"),
                 new TypeReference<List<Vehicle>>() {
         });
 
-        System.out.println(carList);
+        System.out.println(vehicleListReader);
 
 
 
@@ -48,16 +48,16 @@ public class Main {
                 hondaCBREngine, TransmissionChoice.MANUAL, EuroStandard.EURO_4, 24000, Color.YELLOW, MotorCategory.ENDURO);
 
 
-        ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.findAndRegisterModules();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         objectMapper.setDateFormat(df);
 
-        List<Vehicle> vehicleList = new ArrayList<>();
-        vehicleList.add(audiR8);
-        vehicleList.add(hondaCBR);
+        List<Vehicle> vehicleListWriter = new ArrayList<>();
+        vehicleListWriter.add(audiR8);
+        vehicleListWriter.add(hondaCBR);
 
-        objectMapper.writeValue(new File("src\\main\\resources\\writeObjects.json"), vehicleList);
+        String jsonFileWriter = new String();
+        objectMapper.writeValue(new File(jsonFileWriter), vehicleListWriter);
 
 
     }
