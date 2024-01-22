@@ -24,10 +24,6 @@ public class Brand {
         return name;
     }
 
-    public Set<Model> getModels() {
-        return new HashSet<>(models);
-    }
-
     @Override
     public String toString() {
         return "Brand{" +

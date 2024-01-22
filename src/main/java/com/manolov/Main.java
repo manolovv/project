@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.manolov.architecture.*;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
@@ -19,10 +20,9 @@ public class Main {
 
         List<Vehicle> vehicleListReader = objectMapper.readValue(new File("src\\main\\resources\\vehicles.json"),
                 new TypeReference<List<Vehicle>>() {
-        });
+                });
 
         System.out.println(vehicleListReader);
-
 
 
         LocalDate audiR8Manufacture = LocalDate.of(1999, Month.JANUARY, 6);
@@ -56,8 +56,17 @@ public class Main {
         vehicleListWriter.add(audiR8);
         vehicleListWriter.add(hondaCBR);
 
-        String jsonFileWriter = new String();
-        objectMapper.writeValue(new File(jsonFileWriter), vehicleListWriter);
+        String json = objectMapper.writeValueAsString(vehicleListWriter);
+
+
+
+        User manol = new User("Manol", "Manolov", Region.SMOLYAN, "mam96@abv.bg");
+        BigDecimal price = new BigDecimal("6.600");
+        Ad carAd = new Ad(audiR8, ProductStatus.USED, manol, "0878777666",price, null);
+        Ad motorAd = new Ad(hondaCBR, ProductStatus.USED, manol, "0878777666",price, null);
+
+        System.out.println(carAd);
+        System.out.println(motorAd);
 
 
     }

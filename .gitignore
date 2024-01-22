@@ -41,3 +41,4 @@ bin/
 *.jar
 *.class
 *.writeObjects.json
+*.idea
