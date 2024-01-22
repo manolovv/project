@@ -1,6 +1,6 @@
 package com.manolov.architecture;
 
-public record User(String name, String lastName, Region region, String email) {
+public record User(String name, String lastName, Region region, String email, String phoneNumber) {
 
     @Override
     public String toString() {
@@ -9,6 +9,7 @@ public record User(String name, String lastName, Region region, String email) {
                 ", lastName='" + lastName + '\'' +
                 ", region=" + region +
                 ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }

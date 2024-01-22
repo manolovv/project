@@ -8,40 +8,28 @@ public class Ad {
     private final Motor motor;
     private final ProductStatus productStatus;
     private final User user;
-    private final String phoneNumber;
     private final BigDecimal price;
-    private TextField moreInformation;
+    private String moreInformation;
 
     public Ad(Car car, ProductStatus productStatus,
-              User user, String phoneNumber,
-              BigDecimal price, TextField moreInformation) {
+              User user, BigDecimal price,
+              String moreInformation) {
         this.motor = null;
         this.car = car;
         this.productStatus = productStatus;
         this.user = user;
-        this.phoneNumber = phoneNumber;
         this.price = price;
-        if (moreInformation != null) {
-            setMoreInformation(moreInformation);
-        } else {
-            this.moreInformation = null;
-        }
+        this.moreInformation = moreInformation;
     }
 
     public Ad(Motor motor, ProductStatus productStatus,
-              User user, String phoneNumber,
-              BigDecimal price, TextField moreInformation) {
+              User user,BigDecimal price, String moreInformation) {
         this.car = null;
         this.motor = motor;
         this.productStatus = productStatus;
         this.user = user;
-        this.phoneNumber = phoneNumber;
         this.price = price;
-        if (moreInformation != null) {
-            setMoreInformation(moreInformation);
-        } else {
-            this.moreInformation = null;
-        }
+        this.moreInformation = moreInformation;
     }
 
     public Car getCar() {
@@ -60,11 +48,7 @@ public class Ad {
         return user;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public TextField getTextField() {
+    public String getTextField() {
         return moreInformation;
     }
 
@@ -72,7 +56,7 @@ public class Ad {
         return price;
     }
 
-    private void setMoreInformation(TextField moreInformation) {
+    private void setMoreInformation(String moreInformation) {
         this.moreInformation = moreInformation;
     }
 
@@ -83,9 +67,8 @@ public class Ad {
                 ", motor=" + motor +
                 ", productStatus=" + productStatus +
                 ", user=" + user +
-                ", phoneNumber='" + phoneNumber + '\'' +
                 ", price=" + price +
-                ", moreInformation=" + moreInformation +
+                ", moreInformation='" + moreInformation + '\'' +
                 '}';
     }
 }

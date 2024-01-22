@@ -19,7 +19,7 @@ public class Main {
         objectMapper.findAndRegisterModules();
 
         List<Vehicle> vehicleListReader = objectMapper.readValue(new File("src\\main\\resources\\vehicles.json"),
-                new TypeReference<List<Vehicle>>() {
+                new TypeReference<>() {
                 });
 
         System.out.println(vehicleListReader);
@@ -48,7 +48,6 @@ public class Main {
                 hondaCBREngine, TransmissionChoice.MANUAL, EuroStandard.EURO_4, 24000, Color.YELLOW, MotorCategory.ENDURO);
 
 
-        objectMapper.findAndRegisterModules();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         objectMapper.setDateFormat(df);
 
@@ -56,17 +55,18 @@ public class Main {
         vehicleListWriter.add(audiR8);
         vehicleListWriter.add(hondaCBR);
 
-        String json = objectMapper.writeValueAsString(vehicleListWriter);
+        objectMapper.writeValue(new File("src\\main\\resources\\writeObjects.json"), vehicleListWriter);
 
 
 
-        User manol = new User("Manol", "Manolov", Region.SMOLYAN, "mam96@abv.bg");
+        User manol = new User("Manol", "Manolov", Region.SMOLYAN,
+                "mam96@abv.bg", "0878777666");
         BigDecimal price = new BigDecimal("6.600");
-        Ad carAd = new Ad(audiR8, ProductStatus.USED, manol, "0878777666",price, null);
-        Ad motorAd = new Ad(hondaCBR, ProductStatus.USED, manol, "0878777666",price, null);
+        Ad carAd = new Ad(audiR8, ProductStatus.USED, manol, price, null);
+        Ad motorAd = new Ad(hondaCBR, ProductStatus.USED, manol, price, null);
 
-        System.out.println(carAd);
-        System.out.println(motorAd);
+        System.out.println("\n" + carAd);
+        System.out.println("\n" + motorAd);
 
 
     }
