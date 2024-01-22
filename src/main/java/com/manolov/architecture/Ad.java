@@ -1,6 +1,5 @@
 package com.manolov.architecture;
 
-import java.awt.*;
 import java.math.BigDecimal;
 
 public class Ad {

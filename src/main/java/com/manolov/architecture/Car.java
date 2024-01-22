@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Car extends Vehicle {
-    private static final String CAR_TYPE = "Car";
     private final int numberOfDoors;
     private final CarCategory carCategory;
 

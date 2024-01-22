@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Motor extends Vehicle {
-    private static final String MOTOR_TYPE = "Motor";
     private final MotorCategory motorCategory;
 
     @JsonCreator
