@@ -1,4 +1,7 @@
-package architecture;
+package com.manolov.architecture;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Engine {
     private final EngineFuel engineFuel;
@@ -7,8 +10,12 @@ public class Engine {
     private final int cubicCapacity;
     private final int horsePower;
 
-    public Engine(EngineFuel engineFuel, TypeOfCooling typeOfCooling,
-                  int numberOfCylinders, int cubicCapacity, int horsePower) {
+    @JsonCreator
+    public Engine(@JsonProperty("engineFuel") EngineFuel engineFuel,
+                  @JsonProperty("typeOfCooling") TypeOfCooling typeOfCooling,
+                  @JsonProperty("numberOfCylinders") int numberOfCylinders,
+                  @JsonProperty("cubicCapacity") int cubicCapacity,
+                  @JsonProperty("horsePower") int horsePower) {
         this.engineFuel = engineFuel;
         this.typeOfCooling = typeOfCooling;
         this.numberOfCylinders = numberOfCylinders;

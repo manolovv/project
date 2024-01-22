@@ -1,11 +1,29 @@
-import architecture.*;
-
+package com.manolov;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.manolov.architecture.*;
+import java.io.File;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.findAndRegisterModules();
+
+        List<Vehicle> vehicleListReader = objectMapper.readValue(new File("src\\main\\resources\\vehicles.json"),
+                new TypeReference<>() {
+                });
+
+        System.out.println(vehicleListReader);
+
 
         LocalDate audiR8Manufacture = LocalDate.of(1999, Month.JANUARY, 6);
         LocalDate audiR8Register = LocalDate.of(2001, Month.FEBRUARY, 21);
@@ -18,8 +36,6 @@ public class Main {
                 audiR8Features, audiR8Engine, TransmissionChoice.SEMI_AUTOMATIC, EuroStandard.EURO_5,
                 36000, Color.RED, 3, CarCategory.COUPE);
 
-        System.out.println(audiR8);
-
 
         LocalDate hondaCBRManufacture = LocalDate.of(1999, Month.JANUARY, 6);
         LocalDate hondaCBRRegister = LocalDate.of(2001, Month.FEBRUARY, 21);
@@ -31,6 +47,27 @@ public class Main {
         Motor hondaCBR = new Motor(hondaCBRManufacture, hondaCBRRegister, hondaCBRBrand, hondaCBRModel, hondaCBRFeatures,
                 hondaCBREngine, TransmissionChoice.MANUAL, EuroStandard.EURO_4, 24000, Color.YELLOW, MotorCategory.ENDURO);
 
-        System.out.println(hondaCBR);
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        objectMapper.setDateFormat(df);
+
+        List<Vehicle> vehicleListWriter = new ArrayList<>();
+        vehicleListWriter.add(audiR8);
+        vehicleListWriter.add(hondaCBR);
+
+        objectMapper.writeValue(new File("src\\main\\resources\\writeObjects.json"), vehicleListWriter);
+
+
+
+        User manol = new User("Manol", "Manolov", Region.SMOLYAN,
+                "mam96@abv.bg", "0878777666");
+        BigDecimal price = new BigDecimal("6.600");
+        Ad carAd = new Ad(audiR8, ProductStatus.USED, manol, price, null);
+        Ad motorAd = new Ad(hondaCBR, ProductStatus.USED, manol, price, null);
+
+        System.out.println("\n" + carAd);
+        System.out.println("\n" + motorAd);
+
+
     }
 }

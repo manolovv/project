@@ -1,7 +1,13 @@
-package architecture;
+package com.manolov.architecture;
+import com.fasterxml.jackson.annotation.*;
+
 import java.time.LocalDate;
 import java.util.List;
-
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Car.class, name = "Car"),
+        @JsonSubTypes.Type(value = Motor.class, name = "Motor")
+})
 public abstract class Vehicle {
     private final LocalDate dataOfManufacture;
     private final LocalDate firstRegister;
@@ -14,10 +20,17 @@ public abstract class Vehicle {
     private final long milleAge;
     private final Color color;
 
-    protected Vehicle(LocalDate dataOfManufacture, LocalDate firstRegister,
-                   Brand brand, Model model, List<FeatureName> features,
-                   Engine engine, TransmissionChoice transmission,
-                   EuroStandard euroStandard, long milleAge, Color color) {
+    @JsonCreator
+    protected Vehicle(@JsonProperty("dataOfManufacture")LocalDate dataOfManufacture,
+                      @JsonProperty("firstRegister") LocalDate firstRegister,
+                      @JsonProperty("brand") Brand brand,
+                      @JsonProperty("model") Model model,
+                      @JsonProperty("features") List<FeatureName> features,
+                      @JsonProperty("engine") Engine engine,
+                      @JsonProperty("transmission") TransmissionChoice transmission,
+                      @JsonProperty("euroStandard") EuroStandard euroStandard,
+                      @JsonProperty("milleAge") long milleAge,
+                      @JsonProperty("color") Color color) {
         this.dataOfManufacture = dataOfManufacture;
         this.firstRegister = firstRegister;
         this.brand = brand;
@@ -41,11 +54,9 @@ public abstract class Vehicle {
     public Brand getBrand() {
         return brand;
     }
-
     public Model getModel() {
         return model;
     }
-
     public List<FeatureName> getFeatures() {
         return features;
     }
